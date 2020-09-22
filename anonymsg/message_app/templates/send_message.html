@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% block body_block %}
+
+<div class="info-div">
+  {% for message in messages %}
+  <div class="alert alert-danger" style="font-size: 12px;" role="alert">
+    {{ message }}
+  </div>
+  {% endfor %}
+
+  <div class="send-to">
+    Receiver: {{ username }}
+  </div>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="message">Message:</label>
+    <textarea name="message" required></textarea>
+    <p class="char-left">256 characters left.</p>
+    <button class="send-msg-btn bg-success text-light">Send</button>
+  </form>
+</div>
+
+{% endblock %}
