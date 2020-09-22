@@ -1,0 +1,43 @@
+body {
+  background-color: rgba(145, 144, 144, 0.7);
+}
+
+.main-div {
+  max-width: 450px;
+  min-height: 590px;
+  background-color: #fff;
+  margin: 0 auto 0 auto;
+  padding: 15px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.nav-div {
+  background-color: gold;
+  padding: 15px;
+  border-radius: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: #000;
+}
+
+.nav-large {
+  display: inline-block;
+  font-size: 30px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.nav-small {
+  display: inline-block;
+  margin-left: 3%;
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+}
