@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block body_block %}
+
+<div class="info-div text-center">
+  {% for message in messages %}
+  <div class="alert alert-success" role="alert">
+    {{ message }}
+  </div>
+  {% endfor %}
+
+  <div class="random-msg">
+    <a href="#">Send message to a random user.</a>
+  </div>
+
+  <div class="join-now">
+    <p>Not a member yet? <a href="{% url 'signup' %}">Join Now!</a></p>
+  </div>
+</div>
+{% endblock %}
