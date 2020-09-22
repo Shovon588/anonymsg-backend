@@ -6,16 +6,16 @@ body {
   max-width: 450px;
   min-height: 590px;
   background-color: #fff;
-  margin: 0 auto 0 auto;
+  margin: 1% auto 0 auto;
   padding: 15px;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  border-radius: 10px;
 }
 
 .nav-div {
   background-color: gold;
   padding: 15px;
   border-radius: 20px;
+  margin-top: 5%;
 }
 
 a {
