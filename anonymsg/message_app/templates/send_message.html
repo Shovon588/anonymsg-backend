@@ -13,10 +13,17 @@
 
   <form action="" method="post">
     {% csrf_token %}
-    <label for="message">Message:</label>
-    <textarea name="message" required></textarea>
-    <p class="char-left">256 characters left.</p>
-    <button class="send-msg-btn bg-success text-light">Send</button>
+    <label for="message" class="msg-label">Message:</label>
+    <textarea
+      id="message"
+      name="message"
+      oninput="countCharHandler()"
+      maxlength="256"
+      required
+    ></textarea>
+    <p id="char-left">256 characters left.</p>
+    <p id="char-left-danger"></p>
+    <button class="send-msg-btn login-btn">Send</button>
   </form>
 </div>
 

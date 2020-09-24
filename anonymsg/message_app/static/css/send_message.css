@@ -1,5 +1,6 @@
 .send-to {
-  font-size: 25px;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .info-div {
@@ -15,12 +16,22 @@ textarea {
   height: 150px;
 }
 
-.char-left {
+.msg-label {
+  margin-top: 5%;
+  font-size: 18px;
+}
+
+#char-left {
   font-size: 10px;
+}
+
+#char-left-danger {
+  font-size: 10px;
+  color: red;
 }
 
 .send-msg-btn {
   outline: none;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
 }
