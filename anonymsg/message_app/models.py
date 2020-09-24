@@ -14,7 +14,12 @@ class UserModel(models.Model):
 
 class Message(UserModel):
     message = models.CharField(max_length=300)
-    time = models.DateTimeField(default=timezone.now())
+    TYPE_CHOICE = (
+    ('random', 'Random'),
+    ('annonymouse', 'Anonymous')
+    )
+    type = models.CharField(max_length=64, choices=TYPE_CHOICE, blank=True, null=True)
+    time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.message
