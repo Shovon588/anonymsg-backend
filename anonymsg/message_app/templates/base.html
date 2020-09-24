@@ -22,12 +22,15 @@
     <link rel="stylesheet" href="{% static 'css/login.css' %}" />
     <link rel="stylesheet" href="{% static 'css/send_message.css' %}" />
     <link rel="stylesheet" href="{% static 'css/success.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/message.css' %}" />
+
+    <script type="text/javascript" src="{% static 'js/master.js' %}"></script>
   </head>
 
   <body>
     <div class="main-div">
       <div class="nav-div">
-        <div class="nav-large"><a href="{% url 'home' %}">Anonymsg</a></div>
+        <div class="nav-large"><a href="{% url 'home' %}">AnonyMSG</a></div>
 
         {% if user.is_authenticated %}
         <div class="nav-small"><a href="{% url 'messages' %}">Messages</a></div>
