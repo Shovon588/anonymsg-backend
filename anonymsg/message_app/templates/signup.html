@@ -1,17 +1,18 @@
 {% extends 'base.html' %} {% block body_block %}
+
 <div class="form-container">
   <div class="form-top">
-    <p>Sign Up</p>
+    <p class="form-top-text">Sign Up</p>
   </div>
   <div class="form-fields">
     <form class="signin-form" action="" method="post">
       {% csrf_token %}
-      <p>Username</p>
+      <p>Username:</p>
       <input type="text" name="username" , required />
-      <p>Password</p>
+      <p>Password:</p>
       <input type="password" , name="password" , required />
 
-      <button>Signup</button>
+      <button class="login-btn">Signup</button>
       <p class="small-ad">
         Already have an account?
         <span><a href="{% url 'login' %}">Login now.</a></span>
@@ -19,5 +20,13 @@
     </form>
   </div>
 </div>
+
+<script type="text/javascript">
+  let url = "http://127.0.0.1:8000/users/";
+
+  let temp = $.getJSON(url);
+  alert(temp);
+  console.log(temp.responseJSON);
+</script>
 
 {% endblock %}
