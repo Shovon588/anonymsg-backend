@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block body_block %}
+
+<div class="info-div">
+  <div class="send-to text-center" style="font-size: 18px;">
+    A random AnonyMSG user will receive this message. Avoid toxicity. Spread
+    positivity.
+  </div>
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="message" class="msg-label">Message:</label>
+    <textarea
+      id="message"
+      name="message"
+      oninput="countCharHandler()"
+      maxlength="256"
+      required
+    ></textarea>
+    <p id="char-left">256 characters left.</p>
+    <p id="char-left-danger"></p>
+    <button class="send-msg-btn login-btn">Send</button>
+  </form>
+</div>
+
+{% endblock %}
