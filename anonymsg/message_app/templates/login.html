@@ -7,21 +7,21 @@
   {% endfor %}
 
   <div class="form-top">
-    <p>Login</p>
+    <p class="form-top-text">Login</p>
   </div>
   <div class="form-fields">
-    <form class="signin-form" action="" method="post">
+    <form action="" method="post">
       {% csrf_token %}
-      <p>Username</p>
+      <p>Username:</p>
       <input type="text" name="username" , required />
-      <p>Password</p>
+      <p>Password:</p>
       <input type="password" , name="password" , required />
 
-      <button>Login</button>
+      <button class="login-btn">Login</button>
     </form>
+
     <p class="small-ad">
-      Don't have an account?
-      <span><a href="{% url 'signup' %}">Create one now.</a></span>
+      Don't have an account? <a href="{% url 'signup' %}">Sign up!</a>
     </p>
   </div>
 </div>
