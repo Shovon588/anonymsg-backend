@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% block body_block %}
 <div class="form-container">
   {% for message in messages %}
-  <div class="alert alert-danger" role="alert">
+  <div class="alert alert-danger text-center" role="alert">
     {{message}}
   </div>
   {% endfor %}
@@ -13,9 +13,9 @@
     <form action="" method="post">
       {% csrf_token %}
       <p>Username:</p>
-      <input type="text" name="username" , required />
+      <input type="text" name="username" required />
       <p>Password:</p>
-      <input type="password" , name="password" , required />
+      <input type="password" , name="password" required />
 
       <button class="login-btn">Login</button>
     </form>
