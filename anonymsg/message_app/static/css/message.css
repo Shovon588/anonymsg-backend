@@ -1,0 +1,15 @@
+.message-div {
+  width: 90%;
+  margin: 3% auto 3% auto;
+}
+
+.card-text {
+  font-size: 15px;
+}
+
+.card-footer {
+  font-size: 8px;
+  text-align: right;
+  padding: 8px;
+  display: inline-block;
+}

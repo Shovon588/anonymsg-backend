@@ -1,0 +1,94 @@
+{% extends 'base.html' %} {% block body_block %}
+
+<div class="message-div">
+  {% for message in page_obj %}
+  <div class="card mt-3">
+    <div class="card-body">
+      <p class="card-text text-justify" id="message-{{message.id}}">
+        {{message.message}}
+      </p>
+    </div>
+    <div class="card-footer">
+      <a
+        href="javascript:void(0)"
+        class="float-left ml-3"
+        data-toggle="modal"
+        data-target="#exampleModalLong"
+        onclick="modalHandler({{message.id}})"
+        style="font-size: 20px;"
+        ><i class="fa fa-expand"></i
+      ></a>
+      <a id="footer-{{message.id}}">
+        {{message.type|title}} [{{message.time|date:"d-m-y h:iA"}}]
+      </a>
+    </div>
+  </div>
+  {% endfor %}
+
+  <div class="my-5 p-3 text-center" style="font-size: 18px; font-weight: bold;">
+    <center>
+      <span class="step-links text-center">
+        {% if page_obj.has_previous %}
+        <a class="text-danger" href="?page=1">&laquo; First</a>
+        <a class="ml-2" href="?page={{ page_obj.previous_page_number }}"
+          >Prev</a
+        >
+        {% endif %}
+
+        <span class="current mx-2" style="font-size: 8px; color: #9c9992;">
+          Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Next</a>
+        <a
+          class="text-danger ml-2"
+          href="?page={{ page_obj.paginator.num_pages }}"
+          >Last &raquo;</a
+        >
+        {% endif %}
+      </span>
+    </center>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade mt-3"
+  id="exampleModalLong"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p class="modal-title text-center" id="exampleModalLongTitle"></p>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div
+        class="modal-body text-center"
+        style="font-size: 25px;"
+        id="modal-body"
+      ></div>
+      <div class="modal-footer">
+        <a
+          href="javascript:void(0)"
+          data-dismiss="modal"
+          style="font-size: 15px;"
+        >
+          Close
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
