@@ -7,12 +7,29 @@
   </div>
   {% endfor %}
 
-  <div class="random-msg">
-    <a href="#">Send message to a random user.</a>
+  <div class="random-msg mt-5">
+    <a href="{% url 'random' %}">Send message to a random user.</a>
   </div>
 
+  {% if user.is_authenticated %}
   <div class="join-now">
-    <p>Not a member yet? <a href="{% url 'signup' %}">Join Now!</a></p>
+    <a href="{% url 'home' %}" style="font-weight: bold;">Go back home.</a>
   </div>
+  {% else %}
+  <div class="join-now">
+    <p>
+      Not a member yet?
+      <a href="{% url 'signup' %}" style="font-weight: bold; color: blue;"
+        >Join Now!</a
+      >
+    </p>
+    <p>
+      Already have an account?
+      <a href="{% url 'login' %}" style="font-weight: bold; color: blue;"
+        >Login!</a
+      >
+    </p>
+  </div>
+  {% endif %}
 </div>
 {% endblock %}
