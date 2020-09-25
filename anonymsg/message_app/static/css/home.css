@@ -1,14 +1,15 @@
 .body-block-home {
-  margin-top: 5%;
+  margin-top: 3%;
   text-align: center;
 }
 
 .welcome-user {
   font-size: 25px;
-  padding: 20px;
+  padding: 10px;
 }
 
 .welcome-user span {
+  font-size: 30px;
   font-weight: bold;
 }
 
@@ -17,14 +18,20 @@
   margin-bottom: 5px;
 }
 
-.copy-link p {
+.view-messages {
+  color: blue;
+}
+
+#copy-link {
   display: inline-block;
+  text-align: center;
   font-size: 12px;
   background-color: rgb(94, 92, 88);
   color: #fff;
-  width: inherit;
+  width: 70%;
   padding: 3px 10px 3px 10px;
   border-radius: 10px;
+  outline: none;
 }
 
 .message-count {
@@ -33,16 +40,17 @@
   line-height: 1;
 }
 
-.message-count span {
+.message-count {
   margin-top: 10px;
   font-size: 20px;
   font-weight: bold;
 }
 
-.message-count a {
+.view-message {
   font-size: 10px;
   color: blue;
   line-height: 0.5;
+  font-weight: bold;
 }
 
 .facebook {

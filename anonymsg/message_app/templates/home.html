@@ -1,24 +1,49 @@
 {% extends 'base.html' %} {% block body_block %}
-
 <div class="body-block-home">
-  <div class="welcome-user">Welcome <span>shovon588</span></div>
+  <div class="welcome-user">Welcome <span>{{user}}</span></div>
 
-  <div class="copy-link-suggestion">
-    Click below link to copy.
+  <div class="copy-link-suggestion mt-3">
+    Copy and share the link below.
   </div>
   <div class="copy-link">
-    <p>http://127.0.0.1:8000/shovon588 <i class="fa fa-copy"></i></p>
+    <input
+      id="copy-link"
+      type="text"
+      name=""
+      value="http://127.0.0.1:8000/user/{{user}}"
+      onclick="copyLinkHandler()"
+      readonly
+    />
+    <a href="javascript:void(0)" onclick="copyLinkHandler()"
+      ><i class="fa fa-copy"></i
+    ></a>
   </div>
 
-  <div class="message-count">
-    <p>You have got <span>10 messages</span></p>
-    <a href="#">Click here to view messages</a>
+  <div class="mt-3">
+    <p>
+      You have got
+      <span class="message-count"
+        >{{ message_count }} message{{ message_count|pluralize }}</span
+      >
+    </p>
+    <a class="view-message" href="{% url 'messages' %}"
+      >Click here to view messages</a
+    >
   </div>
 
-  <div class="button-section">
-    <a href="#" class="btn facebook">Share to Facebook</a>
-    <a href="#" class="btn whatsapp">Share to Whatsapp</a>
-    <a href="#" class="btn instagram">Share to Instagram</a>
+  <div class="random-msg mt-4">
+    <a href="{% url 'random' %}">Send message to a random user.</a>
+  </div>
+
+  <div class="button-section my-3">
+    <a
+      href="https://www.facebook.com/sharer/?u=http://127.0.0.1:8000/user/{{user}}"
+      target="_blank"
+      class="btn facebook p-2"
+      >Share to Facebook</a
+    >
+    <!-- <a href="#" class="btn whatsapp">Share to Whatsapp</a>
+    <a href="#" class="btn instagram">Share to Instagram</a> -->
   </div>
 </div>
 
