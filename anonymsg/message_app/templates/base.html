@@ -30,7 +30,15 @@
   <body>
     <div class="main-div">
       <div class="nav-div">
-        <div class="nav-large"><a href="{% url 'home' %}">AnonyMSG</a></div>
+        <div class="nav-large">
+          <a href="{% url 'home' %}">
+            <img
+              class="main-logo"
+              src="{% static 'images/twing.png' %}"
+              alt=""
+            />
+          </a>
+        </div>
 
         {% if user.is_authenticated %}
         <div class="nav-small"><a href="{% url 'messages' %}">Messages</a></div>

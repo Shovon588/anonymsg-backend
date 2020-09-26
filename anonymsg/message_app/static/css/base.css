@@ -1,18 +1,24 @@
 body {
-  background-color: rgba(145, 144, 144, 0.7);
+  background-color: #fff;
+}
+
+.main-logo {
+  margin-top: 8%;
+  height: 90px;
+  width: 150px;
 }
 
 .main-div {
-  max-width: 450px;
+  max-width: 430px;
   min-height: 620px;
-  background-color: #fff;
+  background-color: rgba(222, 252, 121, 0.7);
   margin: 1% auto 0 auto;
   padding: 15px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .nav-div {
-  background-color: gold;
+  background-color: rgba(222, 219, 211, 0.7);
   padding: 15px;
   border-radius: 20px;
   margin-top: 5%;

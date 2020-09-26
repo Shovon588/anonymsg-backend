@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'tx+%fn#@@mow6wl&$j@%$(j8$=w%=xl*sqb(37m_^m89obsmhx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["twing.herokuapp.com", "127.0.0.1"]
 
