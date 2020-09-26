@@ -5,9 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages as django_message
 from django.core.paginator import Paginator
 
-from rest_framework.views import APIView
-from rest_framework.response import Response
-
 from . models import Message
 
 from random import randint
