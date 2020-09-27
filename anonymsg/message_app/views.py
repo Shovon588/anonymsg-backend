@@ -4,6 +4,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages as django_message
 from django.core.paginator import Paginator
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import DeleteView
+from django.urls import reverse_lazy
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
 
 from . models import Message
 
@@ -74,6 +81,19 @@ def messages(request):
     return render(request, 'messages.html', context)
 
 
+def favorite_messages(request):
+    messages = Message.objects.filter(user=request.user, favorite=True).order_by('-time')
+    pagi = Paginator(messages, 4)
+    page_number = request.GET.get('page')
+    page_obj = pagi.get_page(page_number)
+
+    context = {
+        'page_obj': page_obj
+}
+
+    return render(request, 'favorite_messages.html', context)
+
+
 def send_message(request, username):
     if username == request.user.username:
         return redirect('home')
@@ -117,3 +137,27 @@ def random_message(request):
         return redirect('success')
 
     return render(request, 'random_message.html')
+
+
+@login_required
+def delete_message(request, id):
+    if request.method == "POST":
+        message = Message.objects.get(id=id)
+        message.delete()
+        django_message.info(request, "Message Deleted.")
+        return redirect('messages')
+    return render(request, 'confirm_delete.html')
+
+
+class ToggleFavorite(APIView):
+    def get(self, request, id):
+        message = Message.objects.get(id=id)
+        if message.favorite:
+            print("yeah bitch")
+            message.favorite = False
+        else:
+            message.favorite = True
+        message.save()
+
+
+        return Response({"message": "Toggle Successful"})
