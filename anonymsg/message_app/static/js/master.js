@@ -22,8 +22,23 @@ countCharHandler = () => {
 
 modalHandler = (id) => {
   let message = document.getElementById("message-" + id).innerHTML;
-  let header = document.getElementById("footer-" + id).innerHTML;
+  let header = document.getElementById("header-" + id).innerHTML;
 
   document.getElementById("exampleModalLongTitle").innerHTML = header;
   document.getElementById("modal-body").innerHTML = message;
+};
+
+toggleFavorite = (id) => {
+  let cname = document.getElementById("fav-" + id).className.split(" ")[1];
+  if (cname === "fa-heart") {
+    document.getElementById("fav-" + id).className = "fa fa-heart-o ml-3 mt-1";
+  } else {
+    document.getElementById("fav-" + id).className =
+      "fa fa-heart ml-3 mt-1 text-danger";
+  }
+
+  let url = "http://127.0.0.1:8000/toggle-fav/" + id + "/";
+  fetch(url).then((response) => {
+    console.log(response.json());
+  });
 };
