@@ -13,3 +13,24 @@
   padding: 8px;
   display: inline-block;
 }
+
+.dropdown-menu {
+  font-size: 10px;
+  background-color: rgba(222, 219, 211, 0.7);
+}
+
+.dropdown-menu:hover {
+  font-size: 10px;
+  background-color: #dc3545;
+}
+
+.dropdown-item:hover {
+  font-size: 10px;
+  background-color: #dc3545;
+}
+
+.modal-body {
+  text-align: center;
+  margin-top: 5%;
+  font-size: 25px;
+}

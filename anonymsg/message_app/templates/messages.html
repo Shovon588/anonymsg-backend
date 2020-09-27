@@ -1,26 +1,88 @@
 {% extends 'base.html' %} {% block body_block %}
 
 <div class="message-div">
+  {% for message in messages %}
+  <div class="alert alert-danger text-center" role="alert">
+    {{message}}
+  </div>
+  {% endfor %}
+  <div class="text-center">
+    <a
+      href="{% url 'favorite' %}"
+      style="font-size: 18px; color: #dc3545; font-weight: bold;"
+      >See favorite messages</a
+    >
+  </div>
+
   {% for message in page_obj %}
   <div class="card mt-3">
+    <div class="card-header border border-0" style="background-color: #fff;">
+      <a id="header-{{message.id}}" style="font-size: 6px;">
+        {{message.type|title}} [ {{message.when}} ]
+      </a>
+
+      <a
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        class="float-right"
+      >
+        ...
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="{% url 'delete' message.pk %}"
+          >Delete Message</a
+        >
+      </div>
+    </div>
+
     <div class="card-body">
-      <p class="card-text text-justify" id="message-{{message.id}}">
+      <p class="card-text text-center" id="message-{{message.id}}">
         {{message.message}}
       </p>
     </div>
-    <div class="card-footer">
+
+    <div class="card-footer border border-0 text-center">
       <a
-        href="javascript:void(0)"
-        class="float-left ml-3"
+        type="button"
+        class="expand-btn"
         data-toggle="modal"
         data-target="#exampleModalLong"
         onclick="modalHandler({{message.id}})"
         style="font-size: 20px;"
+        data-toggle="tooltip"
+        data-placement="top"
+        title="Expand Message"
         ><i class="fa fa-expand"></i
       ></a>
-      <a id="footer-{{message.id}}">
-        {{message.type|title}} [{{message.time|date:"d-m-y h:iA"}}]
-      </a>
+      {% if message.favorite %}
+      <a type="button"
+        ><i
+          id="fav-{{message.id}}"
+          class="fa fa-heart ml-3 mt-1 text-danger"
+          style="font-size: 22px;"
+          onclick="toggleFavorite({{message.id}})"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Toggle Favorite"
+        ></i
+      ></a>
+
+      {% else %}
+      <a type="button"
+        ><i
+          id="fav-{{message.id}}"
+          class="fa fa-heart-o ml-3 mt-1"
+          style="font-size: 22px;"
+          onclick="toggleFavorite({{message.id}})"
+          data-toggle="tooltip"
+          data-placement="top"
+          title="Toggle Favorite"
+        ></i
+      ></a>
+      {% endif %}
     </div>
   </div>
   {% endfor %}
@@ -63,28 +125,25 @@
 >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <p class="modal-title text-center" id="exampleModalLongTitle"></p>
-        <button
+      <div class="modal-header border border-0 bg-warning text-center">
+        <div
+          class="modal-body text-center p-0"
+          style="font-size: 20px;"
+          id="exampleModalLongTitle"
+        ></div>
+        <!-- <p class="modal-title text-center" id="exampleModalLongTitle"></p> -->
+        <!-- <button
           type="button"
           class="close"
           data-dismiss="modal"
           aria-label="Close"
         >
           <span aria-hidden="true">&times;</span>
-        </button>
+        </button> -->
       </div>
-      <div
-        class="modal-body text-center"
-        style="font-size: 25px;"
-        id="modal-body"
-      ></div>
-      <div class="modal-footer">
-        <a
-          href="javascript:void(0)"
-          data-dismiss="modal"
-          style="font-size: 15px;"
-        >
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-footer border border-0">
+        <a type="button" data-dismiss="modal" style="font-size: 8px;">
           Close
         </a>
       </div>
