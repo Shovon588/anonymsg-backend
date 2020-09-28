@@ -15,7 +15,7 @@
   </div>
 
   {% for message in page_obj %}
-  <div class="card mt-3">
+  <div class="card mt-3 border border-0">
     <div class="card-header border border-0" style="background-color: #fff;">
       <a id="header-{{message.id}}" style="font-size: 6px;">
         {{message.type|title}} [ {{message.when}} ]
@@ -87,7 +87,7 @@
   </div>
   {% endfor %}
 
-  <div class="my-5 p-3 text-center" style="font-size: 18px; font-weight: bold;">
+  <div class="my-5 p-3 text-center" style="font-size: 16px; font-weight: bold;">
     <center>
       <span class="step-links text-center">
         {% if page_obj.has_previous %}
@@ -143,7 +143,12 @@
       </div>
       <div class="modal-body" id="modal-body"></div>
       <div class="modal-footer border border-0">
-        <a type="button" data-dismiss="modal" style="font-size: 8px;">
+        <a
+          type="button"
+          class="close-btn"
+          data-dismiss="modal"
+          style="font-size: 8px;"
+        >
           Close
         </a>
       </div>

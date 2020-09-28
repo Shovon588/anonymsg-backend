@@ -25,7 +25,7 @@ SECRET_KEY = 'tx+%fn#@@mow6wl&$j@%$(j8$=w%=xl*sqb(37m_^m89obsmhx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["twing.herokuapp.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["twing.herokuapp.com", "127.0.0.1", "*.ngrok.io"]
 
 
 # Application definition
@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 
