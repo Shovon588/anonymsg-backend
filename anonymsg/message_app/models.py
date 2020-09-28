@@ -26,16 +26,18 @@ class Message(UserModel):
     def when(self):
         now = timezone.now()
         diff = now - self.time
+        days = diff.days
         seconds = diff.seconds
         tot_minutes = seconds // 60
         tot_hours = tot_minutes // 60
 
-        if tot_hours > 20:
+        if days > 0:
             day = self.time.day
             month = self.time.month
             year = self.time.year
             hour = self.time.hour
             minute = self.time.minute
+            print("in here")
 
             if hour > 12:
                 meridiem = "PM"
@@ -55,16 +57,11 @@ class Message(UserModel):
                     ret_obj = "1 minute ago"
                 else:
                     ret_obj = f"{minute} minutes ago"
-            elif tot_hours == 1:
-                if minute == 1:
-                    ret_obj = "1 hour 1 minute ago"
-                else:
-                    ret_obj = f"1 hour {minute} minutes ago"
             else:
-                if minute == 1:
-                    ret_obj = f"{tot_hours} hours 1 minute ago"
+                if tot_hours == 1:
+                    ret_obj = "1 hour ago"
                 else:
-                    ret_obj = f"{tot_hours} hours {minute} minutes ago"
+                    ret_obj = f"{tot_hours} hours ago"
 
         return ret_obj
 
