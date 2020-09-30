@@ -25,7 +25,7 @@ SECRET_KEY = 'tx+%fn#@@mow6wl&$j@%$(j8$=w%=xl*sqb(37m_^m89obsmhx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["twing.herokuapp.com", "127.0.0.1", "*.ngrok.io"]
+ALLOWED_HOSTS = ["twing.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
