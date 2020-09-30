@@ -29,6 +29,7 @@ def signup(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        username = username.lower()
 
         try:
             User.objects.get(username=username)
@@ -51,6 +52,7 @@ def user_login(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
+        username = username.lower()
         user = authenticate(username=username, password=password)
 
         if user:
