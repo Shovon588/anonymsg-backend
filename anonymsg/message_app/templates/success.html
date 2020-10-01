@@ -13,10 +13,13 @@
 
   {% if user.is_authenticated %}
   <div class="join-now">
+    <p style="font-size: 15px;">Share your link to get twinged.</p>
     <a href="{% url 'home' %}" style="font-weight: bold;">Go back home.</a>
   </div>
   {% else %}
   <div class="join-now">
+    <p style="font-size: 15px;">It's time for you to get twinged.</p>
+
     <p>
       Not a member yet?
       <a href="{% url 'signup' %}" style="font-weight: bold; color: blue;"
