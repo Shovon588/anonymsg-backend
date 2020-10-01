@@ -105,7 +105,7 @@ def send_message(request, username):
         try:
             user = User.objects.get(username=username)
             Message.objects.create(user=user, message=message, type="anonymous")
-            django_message.info(request, f"Message sent to {username}.")
+            django_message.info(request, f"You just twinged {username}.")
             return redirect('success')
         except:
             django_message.info(request, "Invalid Target User")
