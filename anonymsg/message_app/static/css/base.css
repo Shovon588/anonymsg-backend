@@ -14,13 +14,25 @@ body {
   background-color: rgba(222, 252, 121, 0.7);
   margin: 1% auto 0 auto;
   padding: 15px;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.footer-div {
+  max-width: 430px;
+  background-color: rgba(222, 219, 211, 0.7);
+  margin: 0 auto 0 auto;
+  padding: 7px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .nav-div {
   background-color: rgba(222, 219, 211, 0.7);
   padding: 15px;
-  border-radius: 20px;
+  border-radius: 7px;
   margin-top: 5%;
 }
 

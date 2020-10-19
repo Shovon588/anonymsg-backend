@@ -8,6 +8,12 @@
   font-weight: bold;
 }
 
+.registered-msg a {
+  color: #49e030;
+  font-size: 22px;
+  font-weight: bold
+}
+
 .join-now {
   margin-top: 5%;
   font-size: 22px;
