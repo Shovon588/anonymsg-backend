@@ -4,7 +4,7 @@ venv/
 anonymsg/message_app/migrations/
 
 anonymsg/anonymsg/__pycache__/
-
+anonymsg/__pycache__/
 anonymsg/db.sqlite3
 
 anonymsg/message_app/__pycache__/
