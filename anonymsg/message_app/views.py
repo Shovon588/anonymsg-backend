@@ -97,11 +97,15 @@ def favorite_messages(request):
 
 
 def send_message(request, username):
-    if username == request.user.username:
-        return redirect('home')
 
     if request.method == 'POST':
         message = request.POST.get('message')
+        username = request.POST.get('username')
+
+        if username == request.user.username:
+            django_message.info(request, "No self messaging allowed.")
+            return redirect('home')
+
         try:
             user = User.objects.get(username=username)
             Message.objects.create(user=user, message=message, type="anonymous")

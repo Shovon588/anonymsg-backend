@@ -5,7 +5,7 @@
   <div class="alert alert-danger text-center" role="alert">
     {{message}}
   </div>
-  {% endfor %}
+  {% endfor %} {% if page_obj %}
   <div class="text-center">
     <a
       href="{% url 'favorite' %}"
@@ -112,6 +112,11 @@
       </span>
     </center>
   </div>
+  {% else %}
+  <h3 class="text-center mt-5">
+    No messages yet. Share your twing link to get some.
+  </h3>
+  {% endif %}
 </div>
 
 <!-- Modal -->

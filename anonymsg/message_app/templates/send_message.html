@@ -11,12 +11,12 @@
   </div>
   {% endfor %}
 
-  <div class="send-to">
-    Receiver: {{ username }}
-  </div>
-
   <form action="" method="post">
     {% csrf_token %}
+
+    <label for="username" class="msg-label">Send to:</label>
+    <input type="text" name="username" value="{{username}}" />
+
     <label for="message" class="msg-label">Message:</label>
     <textarea
       id="message"

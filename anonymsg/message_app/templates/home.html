@@ -1,5 +1,12 @@
 {% extends 'base.html' %} {% block body_block %}
 <div class="body-block-home">
+  {% for message in messages %}
+  <div class="alert alert-danger text-center" role="alert">
+    {{message}}
+  </div>
+
+  {% endfor %}
+
   <div class="welcome-user">Welcome <span>{{user}}</span></div>
 
   <div class="copy-link-suggestion mt-3">
