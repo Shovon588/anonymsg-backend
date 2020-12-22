@@ -8,3 +8,5 @@ anonymsg/__pycache__/
 anonymsg/db.sqlite3
 
 anonymsg/message_app/__pycache__/
+
+.idea/
